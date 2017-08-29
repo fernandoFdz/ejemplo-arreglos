@@ -10,4 +10,8 @@ public class Estudiante{
     public String dimeDetalles(){
         return "Clave: " + clave + ", Nombre: " + nombre;
     }
+    
+    public int dimeClave(){
+        return clave;
+    }
 }
