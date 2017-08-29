@@ -14,8 +14,17 @@ public class Grupo{
     }
     
     //terminar este metodo de tarea
-    public void darBaja(int claveEstudiante){
+    public Estudiante darBaja(int claveEstudiante){
+        int i=0;
+        Estudiante Aux=null;
         //buscar el estudiante con la clave dada
         //y asignarle un null
+        while(estudiantes[i].clave!=claveEstudiante){
+            i++;
+            Aux=estudiantes[i];
+            estudiantes[i] = null;
+        }
+        return Aux;
+
     }
 }

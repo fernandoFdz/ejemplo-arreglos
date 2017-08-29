@@ -1,6 +1,6 @@
 public class Estudiante{
     private String nombre;  
-    private int clave;
+    public int clave;
     
     public Estudiante(int ClaveIni, String NombreIni){
         nombre=NombreIni;
