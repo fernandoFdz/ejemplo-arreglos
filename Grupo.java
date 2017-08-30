@@ -40,17 +40,15 @@ public class Grupo{
     
     }
     //terminar este metodo de tarea
-    public Estudiante darBaja(int claveEstudiante){
-        int i=0;
-        Estudiante Aux=null;
+    public boolean darBaja(int claveEstudiante){
         //buscar el estudiante con la clave dada
         //y asignarle un null
-        while(estudiantes[i].clave!=claveEstudiante){
-            i++;
-            Aux=estudiantes[i];
-            estudiantes[i] = null;
+        int  existe = this.buscarEstudianteBorrar(claveEstudiante);
+        if(existe == -1){
+            return false; //el estudiante esta inscrito y fue eliminado
         }
-        return Aux;
+        
+        return true;// no fue eliminado 
 
     }
     
@@ -60,9 +58,24 @@ public class Grupo{
      * @return Regresa la posicion del estudiante n el arreglo o -1 si no existe
      */
     private int buscarEstudiante(int claveEstudiante){
-        for(int i = 0; i < estudiantes.length ; i++){
-            if(estudiantes[i].dimeClave() == claveEstudiante){
-                return i;
+        for(int i = 0; i < estudiantes.length; i++){
+            if(estudiantes[i] != null){
+                if(estudiantes[i].dimeClave() == claveEstudiante){
+                      return 1;   
+                }
+            }
+        }
+        return -1;
+    }
+    
+    
+    private int buscarEstudianteBorrar(int claveEstudiante){
+        for(int i = 0; i < estudiantes.length; i++){
+            if(estudiantes[i] != null){
+                if(estudiantes[i].dimeClave() == claveEstudiante){
+                estudiantes[i]=null;
+                return 1;
+                }
             }
         }
         return -1;
