@@ -2,6 +2,9 @@ public class Grupo{
     private String nomMateria;
     private Estudiante[] estudiantes;
     
+    /*
+     * constructo de un grupo
+     */
     public Grupo(int totalEstudiantes, String nomMateria){
         estudiantes = new Estudiante[totalEstudiantes];
         this.nomMateria =nomMateria;
@@ -40,6 +43,9 @@ public class Grupo{
     
     }
     //terminar este metodo de tarea
+    /*
+     * metodo que da de baja a un alumno de un grupo
+     */
     public boolean darBaja(int claveEstudiante){
         //buscar el estudiante con la clave dada
         //y asignarle un null
@@ -68,7 +74,9 @@ public class Grupo{
         return -1;
     }
     
-    
+    /*
+     * metodo que busca a un estudiante en el grupo para borrarlo
+     */
     private int buscarEstudianteBorrar(int claveEstudiante){
         for(int i = 0; i < estudiantes.length; i++){
             if(estudiantes[i] != null){
